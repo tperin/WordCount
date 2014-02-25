@@ -11,12 +11,12 @@ struct node *insert(struct node *n, char *text) {
 
 	strcpy(insNode->word, text);
 
-	if (n == NULL) {
+	struct node *head = n;
+
+		if (head == NULL) {
 		/* new tree */
 		return insNode;
 	}
-
-	struct node *head = n;
 	
 	struct node *ptr = n;
 	struct node *prevPtr;
