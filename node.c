@@ -9,7 +9,7 @@ struct node *insert(struct node *n, char *text) {
 	insNode->count = 1;
 	insNode->similarCount = 0;
 
-	strcpy(text,insNode->word);
+	strcpy(insNode->word, text);
 
 	if (n == NULL) {
 		/* new tree */
