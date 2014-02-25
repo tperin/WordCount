@@ -4,7 +4,7 @@
 #include "node.h"
 
 struct node *insert(struct node *n, char *text) {
-	struct node *insNode = (stuct node *)malloc(sizeof(struct node));
+	struct node *insNode = (struct node *)malloc(sizeof(struct node));
 	insNode->word = (char *)malloc(sizeof(char) * (strlen(text) + 1));
 	insNode->count = 1;
 	insNode->similarCount = 0;
@@ -12,6 +12,7 @@ struct node *insert(struct node *n, char *text) {
 	strcpy(text,insNode);
 
 	if (n == NULL) {
+		printf("test");
 		/* new tree */
 		return insNode;
 	}
@@ -34,7 +35,7 @@ struct node *insert(struct node *n, char *text) {
 				ptr->similarCount++;
 				struct node *simPtr = ptr->similar;
 				while (simPtr != NULL) {
-					simPtr = simPtr.similar;
+					simPtr = simPtr->similar;
 				}
 				simPtr = insNode;
 				return head;
@@ -43,11 +44,11 @@ struct node *insert(struct node *n, char *text) {
 		}
 		else if (cmp < 0) {
 			prevPtr = ptr;
-			ptr = ptr.left;
+			ptr = ptr->left;
 		}
 		else {
 			prevPtr = ptr;
-			ptr = ptr.right;
+			ptr = ptr->right;
 		}
 	}
 	/* reached end of tree, this is a new word */
