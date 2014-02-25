@@ -11,7 +11,7 @@ struct node *insert(struct node *n, char *text) {
 
 	strcpy(text,insNode);
 
-	if (n == null) {
+	if (n == NULL) {
 		/* new tree */
 		return insNode;
 	}
@@ -22,7 +22,7 @@ struct node *insert(struct node *n, char *text) {
 	struct node *prevPtr;
 	
 	int cmp = 0; /* init compare int out here so we can access it later */
-	while (ptr != null) {
+	while (ptr != NULL) {
 		cmp = strcasecmp(insNode->word,ptr->word);
 		if (cmp == 0) { /* words equal */
 			int sim = strcmp(insNode->word,ptr->word);
@@ -33,7 +33,7 @@ struct node *insert(struct node *n, char *text) {
 			else { /* same word dif case */
 				ptr->similarCount++;
 				struct node *simPtr = ptr->similar;
-				while (simPtr != null) {
+				while (simPtr != NULL) {
 					simPtr = simPtr.similar;
 				}
 				simPtr = insNode;
@@ -63,11 +63,11 @@ struct node *insert(struct node *n, char *text) {
 }
 
 void print(struct node *head) {
-	if (head->left != null) {
+	if (head->left != NULL) {
 		print(head->left);
 	}
 	printf("%c\t%d\t%d",(head->word + head->similarCount),head->similarCount);
-	if (head->right != null) {
+	if (head->right != NULL) {
 		print(head->right);
 	}
 }
