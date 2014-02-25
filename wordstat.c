@@ -11,7 +11,7 @@ int main(int argc, char ** argv) {
 	FILE *file = fopen("test1.txt","r");
 	char ch;
 	char *wordBuffer = (char *)malloc(200);
-	int c = 0; //buffer counter
+	int c = 0; /*buffer counter*/
 
 	while ((ch = fgetc(file)) != EOF) {
 		if (isalpha(ch)) { //char is letter, add it
