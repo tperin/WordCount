@@ -3,6 +3,14 @@
 #include <string.h>
 #include "node.h"
 
+struct node *newNode(char *text) {
+	struct node *n = (struct node *)malloc(sizeof(struct node));
+	n->word = (char *)malloc(sizeof(char)*strlen(text)+1);
+	n->count = 1;
+	n->similarCount = 0;
+	return n;
+}
+
 struct node *insert(struct node *n, char *text) {
 	struct node *insNode = (struct node *)malloc(sizeof(struct node));
 	insNode->word = (char *)malloc(sizeof(char)*strlen(text)+1);

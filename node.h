@@ -10,6 +10,8 @@ typedef struct node {
 	struct node *similar;
 } node;
 
+struct node *newNode(char *);
+
 struct node *insert(struct node *, char *);
 
 void print(struct node *);

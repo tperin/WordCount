@@ -26,7 +26,12 @@ int main(int argc, char ** argv) {
 		}
 		else { /* char is non alphanumeric or it's a number at the beginning of a word, so we are done with current word */
 			if (wordBuffer[0] != '\0') { /* make sure we have a word */
-				head = insert(head,wordBuffer);
+				if (head == NULL) {
+					head = newNode(wordBuffer);
+				}
+				else {
+					head = insert(head,wordBuffer);
+				}
 			}
 			memset(wordBuffer,'\0',sizeof(char)*strlen(wordBuffer)+1); /* empty buffer */
 			c = 0; /* reset counter */
