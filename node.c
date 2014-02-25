@@ -5,7 +5,7 @@
 
 struct node *insert(struct node *n, char *text) {
 	struct node *insNode = (struct node *)malloc(sizeof(struct node));
-	insNode->word = (char *)malloc(sizeof(char) * (strlen(text) + 1));
+	insNode->word = (char *)malloc(sizeof(char)*strlen(text)+1);
 	insNode->count = 1;
 	insNode->similarCount = 0;
 
