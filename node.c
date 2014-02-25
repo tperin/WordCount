@@ -66,7 +66,7 @@ void print(struct node *head) {
 	if (head->left != NULL) {
 		print(head->left);
 	}
-	printf("%c\t%d\t%d",(head->word + head->similarCount),head->similarCount);
+	printf("%s\t%d\t%d",(head->word + head->similarCount),head->similarCount);
 	if (head->right != NULL) {
 		print(head->right);
 	}
