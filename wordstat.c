@@ -31,4 +31,5 @@ int main(int argc, char ** argv) {
 		}
 	}
 	print(head);
+	return 0;
 }
