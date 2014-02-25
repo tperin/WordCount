@@ -27,12 +27,12 @@ struct node *insert(struct node *n, char *text) {
 		if (cmp == 0) { /* words equal */
 			int sim = strcmp(insNode->word,ptr->word);
 			if (sim == 0) { /* same word same case */
-				printf("found equal case %s and %s\n",insNode->word, ptr->word);
+				
 				ptr->count++;
 				return head;
 			}
 			else { /* same word dif case */
-				printf("found diff case %s and %s\n",insNode->word, ptr->word);
+				
 				ptr->similarCount++;
 				struct node *simPtr = ptr->similar;
 				while (simPtr != NULL) {
@@ -44,17 +44,17 @@ struct node *insert(struct node *n, char *text) {
 			}
 		}
 		else if (cmp < 0) {
-			printf("moving left %s and %s\n",insNode->word, ptr->word);
+			
 			prevPtr->left = insNode;
 			return head;
 		}
 		else {
-			printf("moving right %s and %s\n",insNode->word, ptr->word);
+			
 			prevPtr->right = insNode;
 			return head;
 		}
 	}
-	printf("end %s and %s\n",insNode->word, ptr->word);
+	
 	/* reached end of tree, this is a new word */
 	if (cmp < 0) {
 		/* previous pointer was to the right */
@@ -71,7 +71,7 @@ void print(struct node *head) {
 	if (head->left != NULL) {
 		print(head->left);
 	}
-	printf("%s\t%d\t%d\n",head->word,(head->count + head->similarCount),head->similarCount);
+	printf("%s\t%d\t%d\n",head->word,head->count,head->similarCount);
 	if (head->right != NULL) {
 		print(head->right);
 	}
