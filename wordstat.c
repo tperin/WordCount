@@ -6,14 +6,22 @@
 
 
 int main(int argc, char ** argv) {
+	printf("test");
 	struct node *head;
-
+	printf("test2");
 	FILE *file = fopen("test1.txt","r");
+	if (file == NULL) {
+		printf("Error opening file\n");
+		return 1;
+	}
+	printf("test3");
 	char ch;
-	char *wordBuffer = (char *)malloc(200);
+	char *wordBuffer = (char *)malloc(2000);
+	printf("test4");
 	int c = 0; /* buffer counter */
 
 	while ((ch = fgetc(file)) != EOF) {
+		printf("%s\n",ch);
 		if (isalpha(ch)) { /* char is letter, add it */
 			wordBuffer[c] = ch;
 			c++;
@@ -31,5 +39,5 @@ int main(int argc, char ** argv) {
 		}
 	}
 	print(head);
-	return 0;
+	return 1;
 }
