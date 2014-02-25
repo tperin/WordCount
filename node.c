@@ -12,7 +12,7 @@ struct node *insert(struct node *n, char *text) {
 	strcpy(text,insNode);
 
 	if (n == null) {
-		//new tree
+		/* new tree */
 		return insNode;
 	}
 
@@ -21,16 +21,16 @@ struct node *insert(struct node *n, char *text) {
 	struct node *ptr = n;
 	struct node *prevPtr;
 	
-	int cmp = 0; //init compare int out here so we can access it later
+	int cmp = 0; /* init compare int out here so we can access it later */
 	while (ptr != null) {
 		cmp = strcasecmp(insNode->word,ptr->word);
-		if (cmp == 0) { //words equal
+		if (cmp == 0) { /* words equal */
 			int sim = strcmp(insNode->word,ptr->word);
-			if (sim == 0) { //same word same case
+			if (sim == 0) { /* same word same case */
 				ptr->count++;
 				return head;
 			}
-			else { //same word dif case
+			else { /* same word dif case */
 				ptr->similarCount++;
 				struct node *simPtr = ptr->similar;
 				while (simPtr != null) {
@@ -50,13 +50,13 @@ struct node *insert(struct node *n, char *text) {
 			ptr = ptr.right;
 		}
 	}
-	//reached end of tree, this is a new word
+	/* reached end of tree, this is a new word */
 	if (cmp < 0) {
-		//previous pointer was to the right
+		/* previous pointer was to the right */
 		prevPtr->left = insNode;
 	}
 	else {
-		//previous pointer was to the left
+		/* previous pointer was to the left */
 		prevPtr->right = insNode;
 	}
 	return head;

@@ -11,23 +11,23 @@ int main(int argc, char ** argv) {
 	FILE *file = fopen("test1.txt","r");
 	char ch;
 	char *wordBuffer = (char *)malloc(200);
-	int c = 0; /*buffer counter*/
+	int c = 0; /* buffer counter */
 
 	while ((ch = fgetc(file)) != EOF) {
-		if (isalpha(ch)) { //char is letter, add it
+		if (isalpha(ch)) { /* char is letter, add it */
 			wordBuffer[c] = ch;
 			c++;
 		}
-		else if (isdigit(ch) && c > 0) { //char is number, and we have a partial word so we can add it
+		else if (isdigit(ch) && c > 0) { /* char is number, and we have a partial word so we can add it */
 			wordBuffer[c] = ch;
 			c++;
 		}
-		else { //char is non alphanumeric or it's a number at the beginning of a word, so we are done with current word
-			if (wordBuffer[0] != '\0') { //make sure we have a word
+		else { /* char is non alphanumeric or it's a number at the beginning of a word, so we are done with current word */
+			if (wordBuffer[0] != '\0') { /* make sure we have a word */
 				head = insert(head,wordBuffer);
 			}
-			memset(wordBuffer,'\0',sizeof(char)*strlen(wordBuffer)+1); //empty buffer
-			c = 0; //reset counter
+			memset(wordBuffer,'\0',sizeof(char)*strlen(wordBuffer)+1); /* empty buffer */
+			c = 0; /* reset counter */
 		}
 	}
 	print(head);
