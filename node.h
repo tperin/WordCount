@@ -14,6 +14,6 @@ struct node *newNode(char *);
 
 struct node *insert(struct node *, char *);
 
-void print(struct node *);
+void traverse(struct node *);
 
 #endif

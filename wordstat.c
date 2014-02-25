@@ -32,6 +32,6 @@ int main(int argc, char ** argv) {
 			c = 0; /* reset counter */
 		}
 	}
-	print(head);
+	traverse(head);
 	return 1;
 }
