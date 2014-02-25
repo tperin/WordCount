@@ -16,7 +16,6 @@ int main(int argc, char ** argv) {
 	int c = 0; /* buffer counter */
 
 	while ((ch = fgetc(file)) != EOF) {
-		printf("%s\n",ch);
 		if (isalpha(ch)) { /* char is letter, add it */
 			wordBuffer[c] = ch;
 			c++;
