@@ -31,6 +31,7 @@ struct node *insert(struct node *n, char *text) {
 	
 	int cmp = 0; /* init compare int out here so we can access it later */
 	while (ptr != NULL) {
+		prevPtr = ptr;
 		cmp = strcasecmp(insNode->word,ptr->word);
 		if (cmp == 0) { /* words equal */
 			int sim = strcmp(insNode->word,ptr->word);
