@@ -33,14 +33,16 @@ struct node *insert(struct node *n, char *text) {
 	while (ptr != NULL) {
 		cmp = strcasecmp(insNode->word,ptr->word);
 		printf("%s and %s\n",insNode->word,ptr->word);
-		if (cmp == 0) { /* words equal */
+		if (cmp == 0) { 
+			/* words equal */
 			int sim = strcmp(insNode->word,ptr->word);
-			if (sim == 0) { /* same word same case */
+			if (sim == 0) { 
+				/* same word same case */
 				ptr->count++;
 				return head;
 			}
-			else { /* same word dif case */
-				
+			else { 
+				/* same word dif case */
 				ptr->similarCount++;
 				struct node *simPtr = ptr->similar;
 				while (simPtr != NULL) {

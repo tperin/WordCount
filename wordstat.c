@@ -33,7 +33,7 @@ int main(int argc, char ** argv) {
 		}
 	}
 	if (wordBuffer[0] != '\0') {
-		//still have a word left in the buffer
+		/* still have a word left in the buffer */
 		head = insert(head,wordBuffer);
 	}
 	traverse(head);
