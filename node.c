@@ -32,7 +32,6 @@ struct node *insert(struct node *n, char *text) {
 	int cmp = 0; /* init compare int out here so we can access it later */
 	while (ptr != NULL) {
 		cmp = strcasecmp(insNode->word,ptr->word);
-		printf("%s and %s\n",insNode->word,ptr->word);
 		if (cmp == 0) { 
 			/* words equal */
 			int sim = strcmp(insNode->word,ptr->word);
@@ -44,11 +43,13 @@ struct node *insert(struct node *n, char *text) {
 			else { 
 				/* same word dif case */
 				ptr->similarCount++;
+				/* we dont really need this
 				struct node *simPtr = ptr->similar;
 				while (simPtr != NULL) {
 					simPtr = simPtr->similar;
 				}
 				simPtr = insNode;
+				*/
 				return head;
 
 			}
@@ -78,6 +79,10 @@ struct node *insert(struct node *n, char *text) {
 void traverse(struct node *head) {
 	if (head->left != NULL) {
 		traverse(head->left);
+	}
+	int i;
+	for (i = 0; i < strlen(head->word); i++) {
+		head->word[i] = tolower(head->word[i]);
 	}
 	printf("%s\t%d\t%d\n",head->word,head->count,head->count + head->similarCount);
 	if (head->right != NULL) {

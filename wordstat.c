@@ -6,10 +6,21 @@
 
 
 int main(int argc, char ** argv) {
+
+	if (argc != 2) {
+		printf("Invalid usage. Use -h flag for help\n");
+		return 0;	
+	}
+	if (strcmp(argv[1],"-h") == 0 || strcmp(argv[1],"-help") == 0) {
+		printf("Usage: wordstat [-h] <filename>\n");
+		return 0;
+	}
+
 	struct node *head = NULL;
-	FILE *file = fopen("test1.txt","r");
+	FILE *file = fopen(argv[1],"r");
 	if (file == NULL) {
-		return 1;
+		printf("Error. File %s not found. Exiting\n",argv[1]);
+		return 0;
 	}
 	char ch;
 	char *wordBuffer = (char *)malloc(2000);
