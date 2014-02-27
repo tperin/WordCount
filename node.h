@@ -1,5 +1,3 @@
-#ifndef NODE_H
-#define NODE_H
 
 typedef struct node {
 	char *word;
@@ -14,6 +12,3 @@ struct node *newNode(char *);
 
 struct node *insert(struct node *, char *);
 
-void traverse(struct node *);
-
-#endif
